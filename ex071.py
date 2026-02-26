@@ -10,19 +10,16 @@ while True:
     cedula_1 = sacar % 50 % 20 % 10 // 1
     print('-=' * 20)
     print(f'Você efetuou um saque no valor de R${sacar:.2f}')
-    print(f'''Total de R${cedula_50} cédulas de R$50.00
-Total de R${cedula_20} cédulas de R$20.00
-Total de R${cedula_10} cédulas de R$ 10.00
-Total de R${cedula_1} cédulas de R$1.00''')
+    if cedula_50 > 0:
+        print(f'Total de {cedula_50} cédulas de \033[31mR$50.00\033[m')
+    if cedula_20 > 0:
+        print(f'Total de {cedula_20} cédulas de \033[33mR$20.00\033[m')
+    if cedula_10 > 0:
+        print(f'Total de {cedula_10} cédulas de \033[34mR$10.00\033[m')
+    if cedula_1 > 0:
+        print(f'Total de {cedula_1} cédulas de \033[32mR$1.00\033[m')
     print('-=' * 20)
-    continuar = str(input('Gostaria de efetuar mais algum saque? [S/N]: ').strip().upper()[0])
-    while continuar != 'S' and continuar != 'N':
-        continuar = str(input('Gostaria de efetuar mais algum saque? [S/N]: ').strip().upper()[0])
-    if continuar == 'S':
-        sacar_mais = int(input('Digite o valor que deseja sacar a mais: ').strip())
-        sacar += sacar_mais
-    else:
-        break
-
-print('Agradecemos pela sua confiança no Banco Xavier!!')
+    break
+    
+print('\nAgradecemos pela sua confiança no Banco Xavier!!')
 print('Tenha um bom dia e volte sempre!!')
